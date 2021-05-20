@@ -4,7 +4,7 @@ import { axiosWithAuth } from "../helpers/axiosWithAuth";
 
 const initialFormValues = {
   username: '',
-  number: '',
+  phone: '',
   password: '',
 }
 
@@ -24,7 +24,7 @@ const Login = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axiosWithAuth()
-    .post('/api/login', formValues)
+    .post('/api/auth/login', formValues)
     .then(res => {
       console.log('res:', res)
       //res.data.payload gives us token
@@ -39,8 +39,8 @@ const Login = (props) => {
 
   const handleErrors = () => {
     if (
-      formValues.username !== "eve.holt@reqres.in" ||
-      formValues.password !== "cityslicka"
+      formValues.username !== "akcortese" ||
+      formValues.password !== "1234"
     )
     setError("Username or Password not valid")
   }

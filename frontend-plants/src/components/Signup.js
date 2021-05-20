@@ -4,7 +4,7 @@ import { axiosWithAuth } from "../helpers/axiosWithAuth";
 
 const initialFormValues = {
   username: '',
-  number: '',
+  phone: '',
   password: '',
 }
 
@@ -24,7 +24,7 @@ const Login = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axiosWithAuth()
-    .post('/api/register', formValues)
+    .post('/api/auth/register', formValues)
     .then(res => {
       console.log('res:', res)
       //res.data.payload gives us token
@@ -38,10 +38,10 @@ const Login = (props) => {
   }
 
   const handleErrors = () => {
-    if (
-      formValues.username !== "eve.holt@reqres.in" ||
-      formValues.password !== "pistol"
-    )
+    // if (
+    //   formValues.username !== "eve.holt@reqres.in" ||
+    //   formValues.password !== "pistol"
+    // )
     setError("Username or Password not valid")
   }
 
@@ -54,6 +54,9 @@ const Login = (props) => {
         <form onSubmit={handleSubmit}>
           <label htmlFor='username'>Username</label>
           <input data-testid="username" type='text' name='username' value={formValues.username} onChange={handleChange} id='username' placeholder='Username..' />
+          <label htmlFor='password'>Password</label>
+          <input data-testid="password" type='phone' name='phone' value={formValues.phone} onChange={handleChange} id='phone' placeholder='Phone Number...' />
+          
           <label htmlFor='password'>Password</label>
           <input data-testid="password" type='password' name='password' value={formValues.password} onChange={handleChange} id='password' placeholder='Password..' />
           <button>Sign up!</button>
