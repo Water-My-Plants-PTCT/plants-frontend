@@ -1,6 +1,9 @@
 
+import { Route } from 'react-router';
 import './App.css';
 import Login from './components/Login';
+import PlantPage from './components/PlantPage';
+import PrivateRoute from './components/PrivateRoute';
 import Signup from './components/Signup';
 
 const logout = () => {
@@ -12,8 +15,8 @@ function App() {
       
       Water Plants App
       <button onClick={logout}>LOGOUT</button>
-      <Login />
-      
+      <Route exact path='/' component={Login}/>
+      <PrivateRoute exact path ='/protected/PlantPage' component={PlantPage} />
       <Signup />
       
     </div>

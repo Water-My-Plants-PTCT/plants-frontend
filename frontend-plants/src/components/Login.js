@@ -28,8 +28,8 @@ const Login = (props) => {
     .then(res => {
       console.log('res:', res)
       //res.data.payload gives us token
-      localStorage.setItem('token', res.data.payload)
-    //   props.history.push('/protected/bubbles')
+      localStorage.setItem('token', res.data.token)
+      props.history.push('/protected/PlantPage')
     })
     .catch(err =>{
       console.log({'err:': err.response.data})
