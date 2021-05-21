@@ -1,9 +1,11 @@
-import {AXIOS_START, AXIOS_FAIL, GET_PLANTS_SUCCESS, DELETE_PLANTS_SUCCESS} from './actions'
+import {AXIOS_START, AXIOS_FAIL, GET_PLANTS_SUCCESS, DELETE_PLANTS_SUCCESS, EDIT_PLANTS_SUCCESS} from './actions'
 
 const initialState = {
     plants: [],
     isLoading: false,
-    error: null
+    error: null,
+    phone: '',
+    password: '',
 }
 
 export const reducer = (state = initialState, action) => {
@@ -32,7 +34,21 @@ export const reducer = (state = initialState, action) => {
                 ...state,
                 plants: deletePlants, 
                 isLoading: false,
-            }        
+            }
+        case EDIT_PLANTS_SUCCESS:
+            const newPlants = state.plants.map((plant) => {
+                if (plant.id === action.payload.id) {
+                    return action.payload;
+                } else {
+                    return plant
+                }
+            })
+            return {
+                ...state,
+                plants: newPlants,
+                isLoading: false,
+            }    
+
         default: 
             return state;
     }

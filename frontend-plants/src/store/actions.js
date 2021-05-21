@@ -5,6 +5,7 @@ export const AXIOS_START = "AXIOS_START"
 export const AXIOS_FAIL = "AXIOS_FAIL"
 export const GET_PLANTS_SUCCESS = "GET_PLANTS_SUCCESS"
 export const DELETE_PLANTS_SUCCESS = "DELETE_PLANTS_SUCCESS"
+export const EDIT_PLANTS_SUCCESS = "EDIT_PLANTS_SUCCESS"
 
 
 export const getPlants = () => (dispatch) => {
@@ -25,6 +26,22 @@ export const deletePlants = (plantsID) => (dispatch) => {
         .delete(`/api/plants/${plantsID}`)
         .then((response) => {
             dispatch({ type: DELETE_PLANTS_SUCCESS, payload: plantsID });
+        })
+        .catch((error) => {
+            dispatch({ type: AXIOS_FAIL, payload: error.data });
+        });
+}
+
+export const editPlants = (plants) => (dispatch) => {
+    dispatch({ type: AXIOS_START });
+
+    axiosWithAuth()
+        .put(`/api/plants/${plants.id}`, plants)
+        .then((response) => {
+            dispatch({
+                type: EDIT_PLANTS_SUCCESS,
+                payload: response.data.plants[0],
+            });
         })
         .catch((error) => {
             dispatch({ type: AXIOS_FAIL, payload: error.data });
