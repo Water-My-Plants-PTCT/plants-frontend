@@ -28,11 +28,11 @@ const Login = (props) => {
     .then(res => {
       console.log('res:', res)
       //res.data.payload gives us token
-      localStorage.setItem('token', res.data.token)
+      localStorage.setItem('token', res.data)
       props.history.push('/protected/PlantPage')
     })
     .catch(err =>{
-      console.log({'err:': err.response.data})
+      console.log({'err:': err.res})
       handleErrors()
     });
   }

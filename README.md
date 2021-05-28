@@ -24,7 +24,7 @@ Authenticated `user` can update their `phoneNumber` and `password`.
 
 Logout button on landing page to remove token and route user back to home page.
 
-If there’s time: Allow user to upload a custom image for plant
+<!-- If there’s time: Allow user to upload a custom image for plant -->
 
 UNIT 3 CHECKLIST
 
@@ -52,9 +52,11 @@ POST REQUESTS
 /api/auth/logout      | user must be logged in                          | Allows user to logout and remove token and session id -->
 
 PUT REQUESTS:
-/api/auth/users/:id | phone OR password | User can update their phone number or password. Phone number must be unique (non-duplicates)
+
+<!-- /api/auth/users/:id | phone OR password | User can update their phone number or password. Phone number must be unique (non-duplicates)
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-Plant Endpoints | Required Fields / Token | Description
+Plant Endpoints | Required Fields / Token | Description -->
+
 GET REQUESTS:
 
 <!-- /api/plants           | Token Required                                  | Get's a list of all plants in database -->
@@ -63,10 +65,10 @@ GET REQUESTS:
 /api/plants/user/:id | Token Required | Gets a list of plant data from a specific user id
 
 <!-- POST REQUESTS:
-/api/plants           | Token Required, Required Fields:                | Creates a new plant and returns an object. Optional: User can insert an image url to be saved to
-                        nickname, species, h2oFrequency,                  database. Ex: https://thumbs.dreamstime.com/z/cambria-orchid-plant-blooming-white-38131910.jpg
-                        user_id, photo(optional, user can
-                        insert an image url) -->
+/api/plants | Token Required, Required Fields: | Creates a new plant and returns an object. Optional: User can insert an image url to be saved to
+nickname, species, h2oFrequency, database. Ex: https://thumbs.dreamstime.com/z/cambria-orchid-plant-blooming-white-38131910.jpg
+user_id, photo(optional, user can
+insert an image url) --> -->
 
 PUT REQUESTS:
 

@@ -54,7 +54,7 @@ const Login = (props) => {
         <form onSubmit={handleSubmit}>
           <label htmlFor='username'>Username</label>
           <input data-testid="username" type='text' name='username' value={formValues.username} onChange={handleChange} id='username' placeholder='Username..' />
-          <label htmlFor='password'>Password</label>
+          <label htmlFor='password'>Phone Number</label>
           <input data-testid="password" type='phone' name='phone' value={formValues.phone} onChange={handleChange} id='phone' placeholder='Phone Number...' />
           
           <label htmlFor='password'>Password</label>

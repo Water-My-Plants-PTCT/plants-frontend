@@ -5,19 +5,20 @@ import Login from './components/Login';
 import PlantPage from './components/PlantPage';
 import PrivateRoute from './components/PrivateRoute';
 import Signup from './components/Signup';
+import Header from './Header';
+import AddPlantForm from "./components/AddPlantForm"
 
-const logout = () => {
-  localStorage.removeItem('token')
-}
+
 function App() {
   return (
     <div className="App">
-      
+      <Header />
       Water Plants App
-      <button onClick={logout}>LOGOUT</button>
       <Route exact path='/' component={Login}/>
+      <Route exact path='/signup' component={Signup} />
       <PrivateRoute exact path ='/protected/PlantPage' component={PlantPage} />
       <Signup />
+      <PrivateRoute exact path = '/protected/AddPlantForm' component={AddPlantForm}/>
       
     </div>
   );
